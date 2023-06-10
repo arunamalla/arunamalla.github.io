@@ -27,9 +27,10 @@ description: >- # this means to ignore newlines until "baseurl:"
   am here, to post things I know for sure and the things I started learning.
   Keep checking this blog for more insights in to using REST API, SOAP webservices and SQL in and around Oracle Cloud platforms.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "www.reinventanalytics.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: arunamalla
 github_username:  arunamalla
+linkedin_username: arunamalla9
 
 # Build settings
 theme: minima
