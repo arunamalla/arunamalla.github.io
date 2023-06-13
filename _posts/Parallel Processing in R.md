@@ -3,6 +3,7 @@ layout: post
 title:  "Bot to answer questions in Oracle Forums using Chatgpt 3.5 turbo model"
 date:   2023-06-12 21:38:02 -0700
 categories: jekyll update
+permalink: /R/project1
 ---
 
 ---
