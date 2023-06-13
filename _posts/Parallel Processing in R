@@ -1,3 +1,8 @@
+---
+layout: page
+title: Bot to answer questions in Oracle Forums using Chatgpt 3.5 turbo model
+permalink: /R/project1
+---
 stumbled upon parallel processing while working on Chatgpt API requests automation.
 
 Project details:
