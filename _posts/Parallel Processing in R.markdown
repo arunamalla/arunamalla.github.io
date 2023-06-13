@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Answering posts in oracle forums using Chatgpt"
+excerpt: "An implementation in R"
+date:   2023-06-12 10:00:00
+---
 stumbled upon parallel processing while working on Chatgpt API requests automation.
 
 Project details:
