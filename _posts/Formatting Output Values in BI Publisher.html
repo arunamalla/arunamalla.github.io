@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>How to Make Output Values Bold and Underline in BI Publisher (RTF Template)</title>
+</head>
+<body>
+  <h1>How to Make Output Values Bold and Underline in BI Publisher (RTF Template)</h1>
+  
+  <p>
+    Hi there! If you're developing an Analytics Publisher Report using RTF in BI Publisher, you might come across a requirement where you need to make certain parts of the output values bold and underline. In this blog post, we'll guide you through the process of achieving this formatting in your RTF template.
+  </p>
+  
+  <h2>Step-by-Step Guide</h2>
+  
+  <ol>
+    <li>Open your RTF template in a compatible editor such as Microsoft Word.</li>
+    <li>Select the part of the string that you want to format as bold and underline. This would typically be a column value like <code>Col_B</code>.</li>
+    <li>Apply the formatting to the selected text by choosing the "Bold" and "Underline" options from the font formatting toolbar.</li>
+    <li>Save the RTF template.</li>
+  </ol>
+  
+  <p>
+    Here's an example of how the modified code snippet should look like in your RTF template:
+  </p>
+  
+  <pre>
+    &lt;?xdofx: if COL_A = 1 then
+      ‘Document Invoice value is $' || &lt;?xdofx: '&lt;u&gt;&lt;b&gt;' || Col_B || '&lt;/b&gt;&lt;/u&gt;'?&gt; || ‘ check document’
+    else if
+      ‘Please find the attachment for Invoice details’
+    end if?&gt;
+  </pre>
+  
+  <p>
+    By enclosing the <code>Col_B</code> value within the <code>&lt;?xdofx: ?&gt;</code> tags and applying the <code>&lt;u&gt;</code> and <code>&lt;b&gt;</code> HTML tags, you can dynamically format the specified portion of the string as bold and underline. When the report is generated, the selected part will be displayed with the desired formatting.
+  </p>
+  
+  <p>
+    Make sure to save the template and test it with sample data to ensure that the formatting is applied correctly in the generated report output.
+  </p>
+  
+  <p>
+    With these steps, you can easily make output values bold and underline in your BI Publisher reports, enhancing the visual presentation of your data.
+  </p>
+  
+  <p>
+    We hope you found this blog post helpful! If you have any questions or further inquiries, feel free to leave a comment below.
+  </p>
+  
+  <p>Happy reporting!</p>
+</body>
+</html>

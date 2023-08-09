@@ -1,0 +1,31 @@
+<html>
+  <header>
+    <title>insert a image url in BI Publisher template</title>
+    <link style="blog_style.css"></link>
+  </header>
+<body>
+<div>
+<pre><div class="bg-black rounded-md mb-4"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>xml</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">fo:root</span> <span class="hljs-attr">xmlns:fo</span>=<span class="hljs-string">"http://www.w3.org/1999/XSL/Format"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fo:layout-master-set</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fo:simple-page-master</span> <span class="hljs-attr">master-name</span>=<span class="hljs-string">"simple"</span> <span class="hljs-attr">page-height</span>=<span class="hljs-string">"11in"</span> <span class="hljs-attr">page-width</span>=<span class="hljs-string">"8.5in"</span> <span class="hljs-attr">margin-top</span>=<span class="hljs-string">"0.5in"</span> <span class="hljs-attr">margin-bottom</span>=<span class="hljs-string">"0.5in"</span> <span class="hljs-attr">margin-left</span>=<span class="hljs-string">"0.5in"</span> <span class="hljs-attr">margin-right</span>=<span class="hljs-string">"0.5in"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fo:region-body</span> <span class="hljs-attr">margin-top</span>=<span class="hljs-string">"0.75in"</span> <span class="hljs-attr">margin-bottom</span>=<span class="hljs-string">"0.75in"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fo:simple-page-master</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fo:layout-master-set</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fo:page-sequence</span> <span class="hljs-attr">master-reference</span>=<span class="hljs-string">"simple"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fo:flow</span> <span class="hljs-attr">flow-name</span>=<span class="hljs-string">"xsl-region-body"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fo:block</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Your other content here --&gt;</span>
+        
+        <span class="hljs-comment">&lt;!-- Image with dynamic URL --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fo:external-graphic</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{concat($uuu_p_urlF, 'companyRegistry=', $uuu_p_companyRegistryF, '<span class="hljs-symbol">&amp;amp;</span>sessionId=', $uuu_p_sessionIdF, '<span class="hljs-symbol">&amp;amp;</span>id=', K__UE_PRS_IMAGE1IP)}"</span> <span class="hljs-attr">content-width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">content-height</span>=<span class="hljs-string">"auto"</span>/&gt;</span>
+        
+        <span class="hljs-comment">&lt;!-- Your other content here --&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">fo:block</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fo:flow</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fo:page-sequence</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">fo:root</span>&gt;</span>
+</code></div></div></pre>
+</div>
+</body>
+</html>

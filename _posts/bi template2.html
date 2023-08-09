@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creating Dynamic Image URLs in BI Publisher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #555;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    code {
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      background-color: #f5f5f5;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Creating Dynamic Image URLs in BI Publisher</h1>
+  
+  <p>
+    In this blog post, we will explore how to create dynamic image URLs in BI Publisher to display images based on custom parameters.
+  </p>
+  
+  <h2>Introduction</h2>
+  
+  <p>
+    BI Publisher is a powerful reporting tool that allows you to generate customized reports with dynamic content. One common requirement is to include images in the reports, but sometimes the image URLs need to be constructed dynamically based on specific parameters.
+  </p>
+  
+  <h2>Adding Dynamic Image URLs</h2>
+  
+  <p>
+    To add a dynamic image URL in BI Publisher, follow these steps:
+  </p>
+  
+  <ol>
+    <li>Open your report template in BI Publisher.</li>
+    <li>Locate the section where you want to display the image.</li>
+    <li>Insert the following code snippet:</li>
+  </ol>
+  
+  <pre><code>&lt;fo:external-graphic src="{concat($uuu_p_urlF, 'companyRegistry=', $uuu_p_companyRegistryF, '&amp;amp;sessionId=', $uuu_p_sessionIdF, '&amp;amp;id=', K__UE_PRS_IMAGE1IP)}" content-width="100%" content-height="auto"/&gt;</code></pre>
+  
+  <p>
+    In the above code, replace the placeholders with the actual variable names and parameters specific to your setup. This code will construct the dynamic image URL using the 'uuu_p_urlF' variable and other parameters.
+  </p>
+  
+  <h2>Testing and Finalizing</h2>
+  
+  <p>
+    Once you have added the dynamic image URL, test your report in BI Publisher to verify that the image is rendered correctly. Make any necessary adjustments to the template or variables if needed.
+  </p>
+  
+  <p>
+    Finally, save your report template and generate the report with the dynamic image URLs based on the provided parameters. You should now see the images rendered dynamically in your report.
+  </p>
+  
+  <h2>Conclusion</h2>
+  
+  <p>
+    Creating dynamic image URLs in BI Publisher allows you to display customized images based on specific parameters. By leveraging the power of XSLT and variable concatenation, you can generate dynamic image URLs that enhance the flexibility and customization of your reports.
+  </p>
+  
+  <p>
+    For more information and detailed examples, refer to the <a href="https://docs.oracle.com/en/middleware/developer-tools/bi-publisher/12.2.1.4/bipad/GUID-5B938B9D-7824-4E54-8830-4E13A4A662AA.htm#BIPAD1901">official documentation</a> of BI Publisher.
+  </p>
+  
+  <p>
+    We hope this blog post has provided you with insights into creating dynamic image URLs in BI Publisher. Stay tuned for more BI Publisher tips and tricks!
+  </p>
+  
+</body>
+</html>

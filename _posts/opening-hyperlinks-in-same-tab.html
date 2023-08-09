@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opening Hyperlinks in the Same Tab - Blog Post</title>
+</head>
+<body>
+  <h1>Opening Hyperlinks in the Same Tab</h1>
+
+  <p>When using .xdo URLs in a report, you might want to ensure that the hyperlinks open within the same tab instead of opening in a new tab. By default, hyperlinks open in a new tab, but you can modify the URL to change this behavior.</p>
+
+  <p>To open a hyperlink in the same tab, you need to add a target attribute to the anchor tag. The target attribute specifies where to open the linked document.</p>
+
+  <p>Here's an example:</p>
+
+  <pre>
+    <code>
+      &lt;a href="your_xdo_url_here" target="_self"&gt;Link Text&lt;/a&gt;
+    </code>
+  </pre>
+
+  <p>In the above code snippet, replace "your_xdo_url_here" with the actual URL you want to link to. By setting the target attribute to "_self", the linked document will open in the same tab or frame where the hyperlink is clicked.</p>
+
+  <p>It's important to note that the behavior of opening links in the same tab or a new tab can also be influenced by browser settings or user preferences. Even if you set the target attribute to "_self", some users may have their browsers configured to open new links in a new tab.</p>
+
+  <p>By following this approach, you can control how hyperlinks in your .xdo URLs behave and ensure they open in the same tab.</p>
+
+  <p>Remember to save the modified .xdo file and test the report to verify that the hyperlink now opens within the same tab.</p>
+</body>
+</html>

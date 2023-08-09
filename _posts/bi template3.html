@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transforming Request Structure using XSLT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      color: #555;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      color: #333;
+      margin-bottom: 15px;
+    }
+    
+    code {
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      background-color: #f5f5f5;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Transforming Request Structure using XSLT</h1>
+  
+  <p>
+    In this blog post, we will explore how to transform a request structure into a desired format using XSLT.
+  </p>
+  
+  <h2>Problem Statement</h2>
+  
+  <p>
+    We have a request structure as follows:
+  </p>
+  
+  <pre><code>&lt;mL&gt;
+    &lt;s&gt;1&lt;/s&gt;
+    &lt;dt&gt;2022-01-01-01.00.00&lt;/dt&gt;
+    &lt;q&gt;10&lt;/q&gt;
+  &lt;/mL&gt;
+  &lt;mL&gt;
+    &lt;s&gt;2&lt;/s&gt;
+    &lt;dt&gt;2022-01-01-02.00.00&lt;/dt&gt;
+    &lt;q&gt;11&lt;/q&gt;
+  &lt;/mL&gt;
+  &lt;mL&gt;
+    &lt;s&gt;3&lt;/s&gt;
+    &lt;dt&gt;2022-01-02-01.00.00&lt;/dt&gt;
+    &lt;q&gt;12&lt;/q&gt;
+  &lt;/mL&gt;
+  &lt;mL&gt;
+    &lt;s&gt;4&lt;/s&gt;
+    &lt;dt&gt;2022-01-02-02.00.00&lt;/dt&gt;
+    &lt;q&gt;13&lt;/q&gt;
+  &lt;/mL&gt;</code></pre>
+  
+  <p>
+    We need to transform this structure based on the changing dates and time intervals into the following format:
+  </p>
+  
+  <pre><code>&lt;Interval&gt;
+    &lt;IntervalEnding_01.00.00&gt;10&lt;/IntervalEnding_01.00.00&gt;
+    &lt;IntervalEnding_02.00.00&gt;11&lt;/IntervalEnding_02.00.00&gt;
+  &lt;/Interval&gt;
+  &lt;Interval&gt;
+    &lt;IntervalEnding_01.00.00&gt;12&lt;/IntervalEnding_01.00.00&gt;
+    &lt;IntervalEnding_02.00.00&gt;13&lt;/IntervalEnding_02.00.00&gt;
+  &lt;/Interval&gt;</code></pre>
+  
+  <h2>Solution: XSLT Template</h2>
+  
+  <p>
+    To solve this problem, we can create an XSLT template. Here's an example of the XSLT code:
+  </p>
+  
+  <pre><code>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+    &lt;xsl:output method="xml" indent="yes" /&gt;
+    
+    &lt;xsl:template match="/"&gt;
+      &lt;xsl:apply-templates select="//mL[position() mod 2 = 1]" /&gt;
+    &lt;/xsl:template&gt;
+    
+    &lt;xsl:template match="mL"&gt;
+      &lt;Interval&gt;
+        &lt;xsl:variable name="dt1" select="dt" /&gt;
+        &lt;xsl:variable name="dt2" select="following-sibling::mL[1]/dt" /&gt;
+        
+        &lt;xsl:element name="IntervalEnding_{substring-after($dt1, '-')}"&gt;
+          &lt;xsl:value-of select="q" /&gt;
+        &lt;/xsl:element&gt;
+        &lt;xsl:element name="IntervalEnding_{substring-after($dt2, '-')}"&gt;
+          &lt;xsl:value-of select="following-sibling::mL[1]/q" /&gt;
+        &lt;/xsl:element&gt;
+      &lt;/Interval&gt;
+    &lt;/xsl:template&gt;
+  &lt;/xsl:stylesheet&gt;</code></pre>
+  
+  <p>
+    This XSLT template utilizes the concept of matching and selecting nodes to transform the input structure into the desired output format. It iterates over the <code>mL</code> elements, selects the corresponding <code>dt</code> and <code>q</code> values, and generates the <code>IntervalEnding</code> elements with the appropriate values.
+  </p>
+  
+  <p>
+    To use this XSLT template, you can save it as a separate file with the extension <code>.xsl</code> and apply it during the transformation process.
+  </p>
+  
+  <h2>Conclusion</h2>
+  
+  <p>
+    In this blog post, we have explored the problem of transforming a request structure into a desired format using XSLT. We have provided a solution in the form of an XSLT template that can be applied to achieve the required transformation. XSLT is a powerful tool for manipulating XML data and can be used in various scenarios to convert and format data according to specific requirements.
+  </p>
+  
+  <p>
+    For more information on XSLT and its capabilities, refer to the <a href="https://www.w3.org/TR/xslt">W3C XSLT Specification</a>
+  </p>
+</body>
+</html>

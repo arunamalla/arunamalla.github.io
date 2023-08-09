@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing an XSLT Offline</title>
+  <script type="text/xsl">
+    <![CDATA[
+      <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+        <xsl:output method="xml" indent="yes" />
+
+        <xsl:template match="/">
+          <xsl:apply-templates select="//mL[position() mod 2 = 1]" />
+        </xsl:template>
+
+        <xsl:template match="mL">
+          <Interval>
+            <xsl:variable name="dt1" select="dt" />
+            <xsl:variable name="dt2" select="following-sibling::mL[1]/dt" />
+
+            <xsl:element name="IntervalEnding_{substring-after($dt1, '-')}">
+              <xsl:value-of select="q" />
+            </xsl:element>
+            <xsl:element name="IntervalEnding_{substring-after($dt2, '-')}">
+              <xsl:value-of select="following-sibling::mL[1]/q" />
+            </xsl:element>
+          </Interval>
+        </xsl:template>
+      </xsl:stylesheet>
+    ]]>
+  </script>
+</head>
+<body>
+  <h1>Creation of dynamic elements in XSLT</h1>
+    <a href = "https://forums.oracle.com/ords/apexds/post/creation-of-dynamic-elements-in-xslt-3706" title="Oracle Forums thread Link">here's a link to the original oracle forums thread</a>
+    <p>
+      To generate output as required, save the below xslt template as a `transform.xsl` and the input xml as `input.xml`
+      '<![CDATA["
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:output method="xml" indent="yes" />
+          <xsl:template match="/">
+            <xsl:apply-templates select="//mL[position() mod 2 = 1]" />
+          </xsl:template>
+          <xsl:template match="mL">
+            <Interval>
+              <xsl:variable name="dt1" select="dt" />
+              <xsl:variable name="dt2" select="following-sibling::mL[1]/dt" />
+              <xsl:element name="IntervalEnding_{substring-after($dt1, '-')}">
+                <xsl:value-of select="q" />
+              </xsl:element>
+              <xsl:element name="IntervalEnding_{substring-after($dt2, '-')}">
+                <xsl:value-of select="following-sibling::mL[1]/q" />
+              </xsl:element>
+            </Interval>
+          </xsl:template>
+        </xsl:stylesheet>"]]>'
+    </p>
+  <h1>Testing an XSLT Offline</h1>
+  
+  <h2>Online XSLT Testing</h2>
+  <p>To test an XSLT online, follow these steps:</p>
+  <ol>
+    <li>Copy the XSLT template provided in the previous response and save it as a separate file with the extension <code>.xsl</code>.</li>
+    <li>Create an XML file with the input structure you provided and save it with the extension <code>.xml</code>.</li>
+    <li>Open an online XSLT transformation tool in your web browser.</li>
+    <li>Upload the <code>.xsl</code> file and the <code>.xml</code> file to the online tool.</li>
+    <li>Click on the "Transform" or "Apply" button to initiate the transformation process.</li>
+    <li>View the transformed output in the result area.</li>
+  </ol>
+  
+  <h2>Offline XSLT Testing</h2>
+  <p>To test an XSLT offline, follow these steps:</p>
+  <ol>
+    <li>Save the XSLT template provided in the previous response as a separate file with the extension <code>.xsl</code>.</li>
+    <li>Create an XML file with the input structure you provided and save it with the extension <code>.xml</code>.</li>
+    <li>Choose an XSLT processor to use offline.</li>
+    <li>Install and set up the chosen XSLT processor on your computer.</li>
+    <li>Open a command prompt or terminal window and navigate to the directory where you saved the XSLT file and the XML file.</li>
+    <li>Run the XSLT processor with the appropriate command, specifying the XSLT file and the XML file as input.</li>
+    <li>Open the generated output file to view the transformed XML.</li>
+  </ol>
+  
+  <p>By following these steps, you can test the XSLT transformation online or offline based on your preference and available resources.</p>
+  
+</body>
+</html>

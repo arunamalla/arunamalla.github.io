@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recent Posts</title>
+  <style>
+    /* CSS styles for the layout */
+    #container {
+      display: flex;
+    }
+    
+    #sidebar {
+      width: 20%;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    
+    #main {
+      width: 80%;
+      padding: 20px;
+    }
+    
+    /* CSS styles for the post titles */
+    .post-title {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .post-title:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="sidebar">
+      <h2>Articles</h2>
+      <ul id="post-titles">
+        <li class="post-title" onclick="loadArticle(0)">OTBI-101</li>
+        <li class="post-title" onclick="loadArticle(1)">BI Publisher - 101</li>
+        <li class="post-title" onclick="loadArticle(2)">Interview Questions</li>
+        <li class="post-title" onclick="loadArticle(3)">R</li>
+        <li class="post-title" onclick="loadArticle(4)">Machine Learning in R</li>
+        <li class="post-title" onclick="loadArticle(5)">Miscellaneous</li>
+      </ul>
+    </div>
+    <div id="main">
+      <h1 id="article-title">Post Title 1</h1>
+      <p id="article-content">This is the content of the selected article.</p>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript code to handle article loading
+    function loadArticle(index) {
+      var titles = document.getElementsByClassName("post-title");
+      var content = document.getElementById("article-content");
+      var selectedTitle = titles[index].innerText;
+      
+      // Simulate fetching article content based on the selected title
+      var articleContent = getArticleContent(selectedTitle);
+      
+      // Update the article title and content
+      document.getElementById("article-title").innerText = selectedTitle;
+      content.innerText = articleContent;
+      
+      // Remove active class from all titles and add it to the selected title
+      for (var i = 0; i < titles.length; i++) {
+        titles[i].classList.remove("active");
+      }
+      titles[index].classList.add("active");
+    }
+    
+    // Simulated function to fetch article content based on title
+    function getArticleContent(title) {
+      // Replace this with your actual logic to fetch article content
+      switch (title) {
+        case "Post Title 1":
+          return "This is the content of Post Title 1.";
+        case "Post Title 2":
+          return "This is the content of Post Title 2.";
+        case "Post Title 3":
+          return "This is the content of Post Title 3.";
+        case "Post Title 4":
+          return "This is the content of Post Title 4.";
+        case "Post Title 5":
+          return "This is the content of Post Title 5.";
+        case "Post Title 0":
+          return "This is the content of Post Title 6.";          
+        default:
+          return "No content available.";
+      }
+    }
+    
+    // Load the first article when the page renders
+    window.onload = function() {
+      loadArticle(0);
+    };
+  </script>
+</body>
+</html>
